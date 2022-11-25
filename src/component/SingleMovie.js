@@ -3,10 +3,11 @@ import { motion } from 'framer-motion'
 
 export default function SingleMovie(props) {
     const [isCardOpen, setCardOpen] = useState(false)
-    function handleClick() {
+    function handleClick(e) {
+
 
         setCardOpen(prev => !prev);
-        window.scrollTo({ top: 0 })
+        isCardOpen ? window.scrollTo({ top: 0 }) : window.scrollTo({ top: 0 });
     }
     let styleOpen = {
         position: isCardOpen && 'absolute', zIndex: isCardOpen && '100',
