@@ -6,16 +6,19 @@ import SingleMovie from './component/SingleMovie';
 function App() {
   const [moviesData, setMoviesData] = useState([])
 
-
+  let filteredData;
   useEffect(() => {
     axios.get('https://ghibliapi.herokuapp.com/films').then(res => {
       setMoviesData(res.data);
     })
   }, [])
   function handleChange(e) {
+    filteredData = moviesData.filter((val) => {
+
+    })
 
   }
-  console.log(moviesData);
+  console.log(filteredData);
   const allElement = moviesData.map(element => {
     return <SingleMovie imageUrl={element.image}
       description={element.description}
@@ -30,7 +33,11 @@ function App() {
   return (
     <div className="App">
       <div>
-        <input placeholder='Find a movie' onChange={handleChange} />
+        <input placeholder='Find a movie'
+          onChange={handleChange} style={{
+            width: '300px', padding: '20px',
+            height: '40px', margin: '100px'
+          }} />
       </div>
       <div>
 

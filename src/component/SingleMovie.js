@@ -11,12 +11,13 @@ export default function SingleMovie(props) {
     }
     let styleOpen = {
         position: isCardOpen && 'absolute', zIndex: isCardOpen && '100',
-        width: isCardOpen && '100%', backgroundColor: isCardOpen && 'rgba(255,255,245,1)',
+        width: isCardOpen && '100%', backgroundColor: isCardOpen && 'rgba(235,245,245,1)',
         justifySelf: isCardOpen && 'self-start', left: isCardOpen && '0', top: isCardOpen && '0',
     }
 
     return (
-        <motion.div className='singleMovie' onClick={handleClick} style={styleOpen}>
+        <motion.div
+            className='singleMovie' onClick={handleClick} style={styleOpen}>
             {isCardOpen && <div className='cardFullDisplay' >
                 <>
                     <h2>{props.title}</h2>
@@ -27,7 +28,8 @@ export default function SingleMovie(props) {
                         <p style={{ paddingBottom: '30px' }}>{props.description}</p>
                         <h4>Produced by : {props.producer} on {props.releasedDate}</h4>
                     </div>
-                    <img src={props.imageUrl} style={{ width: isCardOpen && '400px', height: isCardOpen && '500px' }} />
+
+                    <img src={props.imageUrl} style={{ aspectRatio: 3 / 4 }} />
                 </div>
                 <div>
 
@@ -38,12 +40,13 @@ export default function SingleMovie(props) {
                 </div>
             </div>}
             {isCardOpen ? '' : <>
-                <img src={props.imageUrl} style={{ width: isCardOpen && '200px' }} />
                 <div>
-                    <h3>{props.title}</h3>
-                    <small>{props.righting} / 100</small>
+                    <img src={props.imageUrl} style={{ width: isCardOpen && '100%', objectFit: 'cover' }} />
                 </div>
-                <smal>{props.origineTitle}</smal>
+                <h3>{props.title}</h3>
+                <small>{props.righting} / 100</small>
+
+
             </>}
         </motion.div>
     )
