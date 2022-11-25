@@ -4,11 +4,13 @@ import { motion } from 'framer-motion'
 export default function SingleMovie(props) {
     const [isCardOpen, setCardOpen] = useState(false)
     function handleClick() {
-        setCardOpen(prev => !prev)
+
+        setCardOpen(prev => !prev);
+        window.scrollTo({ top: 0 })
     }
     let styleOpen = {
         position: isCardOpen && 'absolute', zIndex: isCardOpen && '100',
-        width: isCardOpen && '100%', backgroundColor: isCardOpen && 'lightgray',
+        width: isCardOpen && '100%', backgroundColor: isCardOpen && 'rgba(255,255,245,1)',
         justifySelf: isCardOpen && 'self-start', left: isCardOpen && '0', top: isCardOpen && '0',
     }
 
@@ -20,8 +22,11 @@ export default function SingleMovie(props) {
                     <h3>{props.origineTitle}</h3>
                 </>
                 <div className='columnContainer'>
-                    <p>{props.description}</p>
-                    <img src={props.imageUrl} style={{ width: isCardOpen && '400px' }} />
+                    <div>
+                        <p style={{ paddingBottom: '30px' }}>{props.description}</p>
+                        <h4>Produced by : {props.producer} on {props.releasedDate}</h4>
+                    </div>
+                    <img src={props.imageUrl} style={{ width: isCardOpen && '400px', height: isCardOpen && '500px' }} />
                 </div>
                 <div>
 

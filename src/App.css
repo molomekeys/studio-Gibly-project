@@ -23,6 +23,7 @@ body {
 
 
 .allMovies {
+  margin-top: 100px;
   display: grid;
   grid-template-columns: repeat(3, 0.5fr);
   gap: 40px;
@@ -60,7 +61,7 @@ body {
 .columnContainer {
   margin-top: 50px;
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 1fr 1fr;
 
   justify-items: center;
 }
@@ -71,7 +72,7 @@ body {
 
 .columnContainer p {
   font-size: 1.8rem;
-  width: 80%;
+
 
 }
 
